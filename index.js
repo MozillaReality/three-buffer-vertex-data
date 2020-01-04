@@ -39,14 +39,7 @@ function updateAttribute (attrib, data, itemSize, dtype) {
   if (!attrib || rebuildAttribute(attrib, data, itemSize)) {
     // create a new array with desired type
     data = flatten(data, dtype)
-
-    if (!attrib) {
-      attrib = new THREE.BufferAttribute(data, itemSize);
-    }
-
-    attrib.itemSize = itemSize
-    attrib.needsUpdate = true
-
+    attrib = new THREE.BufferAttribute(data, itemSize);
     return attrib
   } else {
     // copy data into the existing array
